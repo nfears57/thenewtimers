@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-    before_action :set_blog, only: [:show, :update, :destroy]
+    # before_action :set_blog, only: [:show, :update, :destroy]
   
     # GET /blogs
     def index
@@ -9,8 +9,9 @@ class BlogsController < ApplicationController
   
     # GET /blogs/1
     def show
-      render json: @blog
-    end
+        blog = Blog.find(params[:id])
+        render json: blog
+      end
   
     # POST /blogs
     def create

@@ -26,3 +26,15 @@ categories = [
   
   puts 'Categories seeded successfully'
   
+  puts 'seeding again'
+  User.create!([{username: "nfears", email: "nfears5798@gmail.com", password: "Njf"}])
+  puts "✅ Done seeding!"
+
+  puts 'blogs'
+  Blog.create!([
+    { title: "Sample Blog 1", content: "blog sample 1", category_id: 10, user_id: 1, comment_count: 5 },
+    { title: "Sample Blog 2", content: "blog sample 2", category_id: 10, user_id: 1, comment_count: 10 },
+    # Add more blog records here as needed
+  ])
+  
+  puts 'seeded blog'

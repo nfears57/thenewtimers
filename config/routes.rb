@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
   resources :comments, only: [:show, :create, :delete]
-  resources :users, only: [:show, :create, :delete]
+  resources :users, only: [:index, :show, :create, :delete]
   resources :blogs, only: [:index, :show, :create, :update, :delete]
   # config/routes.rb
   resources :sessions, only: [:is_logged_in?, :create, :destroy]

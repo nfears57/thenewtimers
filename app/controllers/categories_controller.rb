@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
     end
 
     def show
-        render json: @categories
+        category = Category.find_by(id: params[:id])
+        render json: category
     end
 end

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-skip_before_action :authorize, only: [:create, :show, :index, :update]
-before_action :set_user, only: [:show, :destroy]
+# skip_before_action :authorize, only: [:create, :show, :index, :update]
+# before_action :set_user, only: [:index, :show, :destroy]
   
     # GET /users
     def index
@@ -14,7 +14,7 @@ before_action :set_user, only: [:show, :destroy]
     def show
         user = User.find_by(id: session[:user_id])
         if user
-          render json: user
+          render json: user, serializer: UserWithBlogsSerializer
         else
           render json: { message: "User not authenticated" }, status: :unauthorized
         end
